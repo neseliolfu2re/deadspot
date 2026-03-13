@@ -2,7 +2,7 @@
 
 > Google Maps reviews are fake. DeadSpot isn't.
 
-DeadSpot is a verifiable complaint map where users report bad WiFi, awful restaurants, broken infrastructure — and anything else that sucks — with **cryptographic proof**. Every report is stored immutably on [Shelby Protocol](https://shelby.xyz) (Aptos testnet), making manipulation impossible.
+DeadSpot is a verifiable complaint map where users report bad WiFi, awful restaurants, broken infrastructure — and anything else that sucks — with **cryptographic proof**. Every report is stored immutably on [Shelby Protocol](https://shelby.xyz) (testnet), making manipulation impossible.
 
 No fake reviews. No paid ratings. Just receipts.
 
