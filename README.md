@@ -2,7 +2,7 @@
 
 > Google Maps reviews are fake. DeadSpot isn't.
 
-DeadSpot is a verifiable complaint map where users report bad WiFi, awful restaurants, broken infrastructure — and anything else that sucks — with **cryptographic proof**. Every report is stored immutably on [Shelby Protocol](https://shelby.xyz) (testnet), making manipulation impossible.
+DeadSpot is a verifiable complaint map where users report bad WiFi, awful restaurants, broken infrastructure and anything else that sucks with **cryptographic proof**. Every report is stored immutably on [Shelby Protocol](https://shelby.xyz) (testnet), making manipulation impossible.
 
 No fake reviews. No paid ratings. Just receipts.
 
@@ -18,8 +18,8 @@ DeadSpot fixes this by making every complaint **verifiable and permanent.**
 
 ## How It Works
 
-1. **Report** — Take a photo, GPS is auto-detected, write a short description. Your report is uploaded as a blob to Shelby Protocol with a cryptographic timestamp.
-2. **Confirm** — Others visit the same spot and confirm the complaint is still valid. Each confirmation is also stored on Shelby — immutably.
+1. **Report** - Take a photo, GPS is auto-detected, write a short description. Your report is uploaded as a blob to Shelby Protocol with a cryptographic timestamp.
+2. **Confirm** - Others visit the same spot and confirm the complaint is still valid. Each confirmation is also stored on Shelby — immutably.
 3. **Trust** — After 3 independent confirmations, a spot becomes a **Verified DeadSpot**. Nobody can remove it. Nobody can fake it.
 
 ---
@@ -29,7 +29,7 @@ DeadSpot fixes this by making every complaint **verifiable and permanent.**
 - 🌍 Full-screen interactive map with real-time DeadSpot markers
 - 📸 Photo + GPS + timestamp stored on Shelby Protocol
 - ✅ Community confirmation system with Sybil resistance
-- 🏆 Leaderboard — top reporters, most confirmed spots
+- 🏆 Leaderboard: top reporters, most confirmed spots
 - 🔴 Verified DeadSpot badges after 3 confirmations
 - 🔗 Petra Wallet authentication (Aptos)
 - 📂 Categories: WiFi / Restaurant / Traffic / Other
@@ -100,7 +100,7 @@ Others Confirm ──► confirmation blobs on Shelby
 
 ## Why Shelby?
 
-Traditional storage can be tampered with — files deleted, timestamps forged, reviews removed. Shelby's hot storage protocol gives DeadSpot:
+Traditional storage can be tampered with files deleted, timestamps forged, reviews removed. Shelby's hot storage protocol gives DeadSpot:
 
 - **Immutability** — reports cannot be altered or deleted
 - **Speed** — sub-second reads for real-time map updates
