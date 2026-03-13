@@ -69,8 +69,8 @@ Open [http://localhost:3000](http://localhost:3000)
 
 ### Shelby Setup
 
-1. Install Petra Wallet and switch to **Aptos Testnet**
-2. Get **APT** (gas fees) and **ShelbyUSD** (storage) from the faucet
+1. Install Petra Wallet and switch to **Shelbynet** (Shelby testnet)
+2. Get **APT** (gas fees) and **ShelbyUSD** (storage) from the [Shelbynet faucet](https://faucet.shelbynet.shelby.xyz)
 3. Connect your wallet in the app and start reporting
 
 ---
