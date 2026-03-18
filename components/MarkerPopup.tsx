@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useWallet } from "@aptos-labs/wallet-adapter-react";
 import { useUploadBlobs } from "@shelby-protocol/react";
 import { shelbyClient } from "@/lib/shelby";
@@ -52,13 +53,19 @@ export function MarkerPopup({ report, onConfirm }: MarkerPopupProps) {
         {new Date(report.timestamp).toLocaleString()} · {report.confirmations.length} confirmations
       </div>
       <div className="flex flex-wrap gap-2">
+        <Link
+          href={`/report/${report.id}`}
+          className="text-xs text-red-400 hover:underline"
+        >
+          View details →
+        </Link>
         <a
           href={`${SHELBY_EXPLORER}/account/${report.walletAddress}`}
           target="_blank"
           rel="noopener noreferrer"
           className="text-xs text-red-400 hover:underline"
         >
-          View on Explorer
+          Explorer
         </a>
         {canConfirm && (
           <button

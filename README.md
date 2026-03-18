@@ -67,6 +67,12 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000)
 
+### Deploy to Vercel
+
+1. Go to [vercel.com/new](https://vercel.com/new)
+2. Import your GitHub repo `neseliolfu2re/deadspot`
+3. Click Deploy (Next.js is auto-detected)
+
 ### Shelby Setup
 
 1. Install Petra Wallet and switch to **Shelbynet** (Shelby testnet)

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { useWallet } from "@aptos-labs/wallet-adapter-react";
 import { useUploadBlobs } from "@shelby-protocol/react";
 import { shelbyClient } from "@/lib/shelby";
@@ -22,6 +22,30 @@ export function ReportModal({ coords, onClose, onSuccess }: ReportModalProps) {
   const [category, setCategory] = useState<DeadSpotCategory>("other");
   const [description, setDescription] = useState("");
   const [photo, setPhoto] = useState<File | null>(null);
+  const [currentCoords, setCurrentCoords] = useState(coords);
+  const [geolocating, setGeolocating] = useState(false);
+
+  useEffect(() => {
+    setCurrentCoords(coords);
+  }, [coords]);
+
+  const handleUseMyLocation = useCallback(() => {
+    if (!navigator.geolocation) {
+      alert("Geolocation is not supported by your browser");
+      return;
+    }
+    setGeolocating(true);
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        setCurrentCoords({ lat: pos.coords.latitude, lng: pos.coords.longitude });
+        setGeolocating(false);
+      },
+      (err) => {
+        alert("Could not get location: " + err.message);
+        setGeolocating(false);
+      },
+    );
+  }, []);
 
   const uploadBlobs = useUploadBlobs({
     client: shelbyClient,
@@ -34,7 +58,7 @@ export function ReportModal({ coords, onClose, onSuccess }: ReportModalProps) {
         blobId: blobName,
         category,
         description,
-        coords,
+        coords: currentCoords,
         timestamp,
         walletAddress: addr,
         confirmations: [],
@@ -65,7 +89,7 @@ export function ReportModal({ coords, onClose, onSuccess }: ReportModalProps) {
     const metadata = {
       category,
       description: description.trim(),
-      coords,
+      coords: currentCoords,
       timestamp,
       walletAddress: addr,
     };
@@ -97,7 +121,7 @@ export function ReportModal({ coords, onClose, onSuccess }: ReportModalProps) {
     category,
     description,
     photo,
-    coords,
+    currentCoords,
     uploadBlobs,
   ]);
 
@@ -174,10 +198,19 @@ export function ReportModal({ coords, onClose, onSuccess }: ReportModalProps) {
             />
           </div>
 
-          {/* TODO: Add "Use my location" button with navigator.geolocation for GPS auto-detect */}
-          <p className="text-xs text-gray-500">
-            Location: {coords.lat.toFixed(5)}, {coords.lng.toFixed(5)}
-          </p>
+          <div className="flex items-center gap-2">
+            <p className="text-xs text-gray-500">
+              Location: {currentCoords.lat.toFixed(5)}, {currentCoords.lng.toFixed(5)}
+            </p>
+            <button
+              type="button"
+              onClick={handleUseMyLocation}
+              disabled={geolocating}
+              className="text-xs px-2 py-1 rounded bg-red-900/50 hover:bg-red-800/60 text-red-300 disabled:opacity-50"
+            >
+              {geolocating ? "Getting..." : "Use my location"}
+            </button>
+          </div>
         </div>
 
         <div className="flex gap-2 mt-6">
